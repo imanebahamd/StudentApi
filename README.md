@@ -1,7 +1,7 @@
 # Student Management System
 
-A full-stack student management application built with **.NET 8** backend and **Angular 21** frontend.  
-The project follows modern software architecture principles including **Domain-Driven Design (DDD)** and **CQRS pattern with MediatR**, and uses modern Angular features such as **signals** and **standalone components**.
+A **mini full-stack student management application** built with **.NET 8** backend and **Angular 21** frontend.  
+This app demonstrates **basic CRUD operations** (Create, Read, Update, Delete) for students and uses modern Angular features like **signals** and **standalone components**.
 
 ---
 
