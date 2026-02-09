@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -12,13 +12,12 @@ import { Student } from '../../../../core/models/student.model';
 @Component({
     selector: 'app-student-list-page',
     imports: [
-        CommonModule,
-        MatButtonModule,
-        MatIconModule,
-        MatProgressSpinnerModule,
-        MatDialogModule,
-        StudentListComponent
-    ],
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    StudentListComponent
+],
     templateUrl: './student-list-page.component.html',
     styleUrls: ['./student-list-page.component.scss']
 })

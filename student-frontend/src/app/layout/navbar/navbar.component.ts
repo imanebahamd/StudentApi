@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Router, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,11 +10,10 @@ import { StudentService } from './../../core/services/student.service';
 @Component({
     selector: 'app-navbar',
     imports: [
-        CommonModule,
-        RouterModule,
-        MatToolbarModule,
-        MatIconModule
-    ],
+    RouterModule,
+    MatToolbarModule,
+    MatIconModule
+],
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })

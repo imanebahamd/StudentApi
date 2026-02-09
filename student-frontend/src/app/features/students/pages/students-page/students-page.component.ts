@@ -1,6 +1,6 @@
 // students-page.component.ts (UPDATED - Graduation Cap Version)
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -16,14 +16,13 @@ import { GraduationCapMascotComponent } from '../../components/graduation-cap-ma
 @Component({
     selector: 'app-students-page',
     imports: [
-        CommonModule,
-        MatCardModule,
-        MatButtonModule,
-        MatProgressSpinnerModule,
-        MatDialogModule,
-        MatIcon,
-        GraduationCapMascotComponent
-    ],
+    MatCardModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatIcon,
+    GraduationCapMascotComponent
+],
     templateUrl: './students-page.component.html',
     styleUrls: ['./students-page.component.scss']
 })

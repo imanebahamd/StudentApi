@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,15 +15,14 @@ import { MatProgressSpinner } from "@angular/material/progress-spinner";
 @Component({
     selector: 'app-student-details',
     imports: [
-        CommonModule,
-        RouterModule,
-        MatCardModule,
-        MatButtonModule,
-        MatIconModule,
-        MatDividerModule,
-        MatDialogModule,
-        MatProgressSpinner
-    ],
+    RouterModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatDialogModule,
+    MatProgressSpinner
+],
     templateUrl: './student-details.component.html',
     styleUrls: ['./student-details.component.scss']
 })

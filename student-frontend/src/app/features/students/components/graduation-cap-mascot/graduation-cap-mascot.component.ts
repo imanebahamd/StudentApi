@@ -1,11 +1,11 @@
 // graduation-cap-mascot.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
     selector: 'app-graduation-cap-mascot',
-    imports: [CommonModule],
+    imports: [],
     template: `
     <div class="cap-container" [@float]="floatState">
       <svg 

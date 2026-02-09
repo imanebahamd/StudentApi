@@ -1,5 +1,5 @@
 import { Component, input, output, ViewChild, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
@@ -16,18 +16,17 @@ import { format } from 'date-fns';
 @Component({
     selector: 'app-student-list',
     imports: [
-        CommonModule,
-        MatTableModule,
-        MatButtonModule,
-        MatIconModule,
-        RouterModule,
-        MatCardModule,
-        MatTooltipModule,
-        MatPaginatorModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule
-    ],
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
+],
     templateUrl: './student-list.component.html',
     styleUrls: ['./student-list.component.scss']
 })
