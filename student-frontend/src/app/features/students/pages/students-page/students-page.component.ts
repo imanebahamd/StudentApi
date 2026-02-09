@@ -14,19 +14,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { GraduationCapMascotComponent } from '../../components/graduation-cap-mascot/graduation-cap-mascot.component';
 
 @Component({
-  selector: 'app-students-page',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
-    MatDialogModule,
-    MatIcon,
-    GraduationCapMascotComponent
-],
-  templateUrl: './students-page.component.html',
-  styleUrls: ['./students-page.component.scss']
+    selector: 'app-students-page',
+    imports: [
+        CommonModule,
+        MatCardModule,
+        MatButtonModule,
+        MatProgressSpinnerModule,
+        MatDialogModule,
+        MatIcon,
+        GraduationCapMascotComponent
+    ],
+    templateUrl: './students-page.component.html',
+    styleUrls: ['./students-page.component.scss']
 })
 export class StudentsPageComponent implements OnInit {
   readonly studentService = inject(StudentService);

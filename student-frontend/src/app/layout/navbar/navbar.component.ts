@@ -8,16 +8,15 @@ import { StudentFormComponent } from '../../features/students/components/student
 import { StudentService } from './../../core/services/student.service';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatToolbarModule,
-    MatIconModule
-  ],
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+    selector: 'app-navbar',
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatToolbarModule,
+        MatIconModule
+    ],
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
   readonly dialog = inject(MatDialog);

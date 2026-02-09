@@ -4,10 +4,9 @@ import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
-  selector: 'app-graduation-cap-mascot',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-graduation-cap-mascot',
+    imports: [CommonModule],
+    template: `
     <div class="cap-container" [@float]="floatState">
       <svg 
         class="cap-svg" 
@@ -153,7 +152,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 
     </div>
   `,
-  styles: [`
+    styles: [`
     .cap-container {
       position: relative;
       display: inline-block;
@@ -173,29 +172,29 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
   `],
-  animations: [
-    trigger('float', [
-      state('up', style({ transform: 'translateY(-6px)' })),
-      state('down', style({ transform: 'translateY(6px)' })),
-      transition('up <=> down', animate('3s ease-in-out'))
-    ]),
-    trigger('blink', [
-      state('open', style({ opacity: 1 })),
-      state('closed', style({ opacity: 0.1 })),
-      transition('open => closed', animate('100ms')),
-      transition('closed => open', animate('100ms'))
-    ]),
-    trigger('tasselSwing', [
-      state('left', style({ transform: 'rotate(-6deg)', transformOrigin: '70px 50px' })),
-      state('right', style({ transform: 'rotate(6deg)', transformOrigin: '70px 50px' })),
-      transition('left <=> right', animate('2s ease-in-out'))
-    ]),
-    trigger('bookOpen', [
-      state('closed', style({ transform: 'perspective(400px) rotateX(0deg)' })),
-      state('open', style({ transform: 'perspective(400px) rotateX(-5deg)' })),
-      transition('closed <=> open', animate('800ms ease-in-out'))
-    ])
-  ]
+    animations: [
+        trigger('float', [
+            state('up', style({ transform: 'translateY(-6px)' })),
+            state('down', style({ transform: 'translateY(6px)' })),
+            transition('up <=> down', animate('3s ease-in-out'))
+        ]),
+        trigger('blink', [
+            state('open', style({ opacity: 1 })),
+            state('closed', style({ opacity: 0.1 })),
+            transition('open => closed', animate('100ms')),
+            transition('closed => open', animate('100ms'))
+        ]),
+        trigger('tasselSwing', [
+            state('left', style({ transform: 'rotate(-6deg)', transformOrigin: '70px 50px' })),
+            state('right', style({ transform: 'rotate(6deg)', transformOrigin: '70px 50px' })),
+            transition('left <=> right', animate('2s ease-in-out'))
+        ]),
+        trigger('bookOpen', [
+            state('closed', style({ transform: 'perspective(400px) rotateX(0deg)' })),
+            state('open', style({ transform: 'perspective(400px) rotateX(-5deg)' })),
+            transition('closed <=> open', animate('800ms ease-in-out'))
+        ])
+    ]
 })
 export class GraduationCapMascotComponent implements OnInit, OnDestroy {
   floatState: 'up' | 'down' = 'up';

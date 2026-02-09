@@ -13,20 +13,19 @@ import { format } from 'date-fns';
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
 
 @Component({
-  selector: 'app-student-details',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatDialogModule,
-    MatProgressSpinner
-],
-  templateUrl: './student-details.component.html',
-  styleUrls: ['./student-details.component.scss']
+    selector: 'app-student-details',
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        MatDialogModule,
+        MatProgressSpinner
+    ],
+    templateUrl: './student-details.component.html',
+    styleUrls: ['./student-details.component.scss']
 })
 export class StudentDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);

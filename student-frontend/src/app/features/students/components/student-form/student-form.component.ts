@@ -17,20 +17,19 @@ interface DialogData {
 }
 
 @Component({
-  selector: 'app-student-form',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatButtonModule,
-    MatIconModule
-  ],
-  templateUrl: './student-form.component.html',
-  styleUrls: ['./student-form.component.scss']
+    selector: 'app-student-form',
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatButtonModule,
+        MatIconModule
+    ],
+    templateUrl: './student-form.component.html',
+    styleUrls: ['./student-form.component.scss']
 })
 export class StudentFormComponent {
   private fb = inject(FormBuilder);

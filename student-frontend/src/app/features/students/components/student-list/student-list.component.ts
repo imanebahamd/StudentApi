@@ -14,23 +14,22 @@ import { Student } from '../../../../core/models/student.model';
 import { format } from 'date-fns';
 
 @Component({
-  selector: 'app-student-list',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatButtonModule,
-    MatIconModule,
-    RouterModule,
-    MatCardModule,
-    MatTooltipModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule
-  ],
-  templateUrl: './student-list.component.html',
-  styleUrls: ['./student-list.component.scss']
+    selector: 'app-student-list',
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatButtonModule,
+        MatIconModule,
+        RouterModule,
+        MatCardModule,
+        MatTooltipModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule
+    ],
+    templateUrl: './student-list.component.html',
+    styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent {
   students = input<Student[]>([]);

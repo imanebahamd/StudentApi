@@ -10,18 +10,17 @@ import { StudentService } from '../../../../core/services/student.service';
 import { Student } from '../../../../core/models/student.model';
 
 @Component({
-  selector: 'app-student-list-page',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatDialogModule,
-    StudentListComponent
-  ],
-  templateUrl: './student-list-page.component.html',
-  styleUrls: ['./student-list-page.component.scss']
+    selector: 'app-student-list-page',
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatDialogModule,
+        StudentListComponent
+    ],
+    templateUrl: './student-list-page.component.html',
+    styleUrls: ['./student-list-page.component.scss']
 })
 export class StudentListPageComponent implements OnInit {
   private studentService = inject(StudentService);
