@@ -27,7 +27,6 @@ builder.Services.AddAutoMapper(typeof(StudentApi.Application.Mappings.MappingPro
 // FluentValidation
 builder.Services.AddValidatorsFromAssembly(typeof(StudentApi.Application.Students.Commands.CreateStudentCommand).Assembly);
 
-// CORS - ADD THIS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
@@ -48,7 +47,6 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// CORS - ADD THIS (BEFORE UseAuthorization)
 app.UseCors("AllowAngularApp");
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
