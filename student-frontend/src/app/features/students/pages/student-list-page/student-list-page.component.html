@@ -1,0 +1,25 @@
+<div class="student-list-page">
+  <div class="page-header">
+    <h1>
+      <mat-icon>school</mat-icon>
+      Student List
+    </h1>
+    <button mat-raised-button class="add-btn" (click)="openAddDialog()">
+      <mat-icon>person_add</mat-icon>
+      Add New Student
+    </button>
+  </div>
+
+  @if (isLoading) {
+    <div class="loading-container">
+      <mat-spinner diameter="50"></mat-spinner>
+      <p>Loading students...</p>
+    </div>
+  } @else {
+    <app-student-list
+      [students]="students"
+      (edit)="onEditStudent($event)"
+      (delete)="onDeleteStudent($event)">
+    </app-student-list>
+  }
+</div>

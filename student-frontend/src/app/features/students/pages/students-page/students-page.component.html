@@ -1,0 +1,34 @@
+<!-- students-page.component.html (UPDATED - Graduation Cap Version) -->
+<div class="welcome-page" *ngIf="!showStudentList">
+  <div class="welcome-container">
+    
+    <!-- Graduation Cap Mascot -->
+    <div class="mascot-wrapper">
+      <app-graduation-cap-mascot></app-graduation-cap-mascot>
+    </div>
+
+    <!-- Welcome Title -->
+    <h1 class="welcome-title">
+      Welcome to <span class="highlight">OurStudents</span>
+    </h1>
+
+    <!-- Brief Description -->
+    <p class="welcome-description">
+      OurStudents simplifies student management by providing an intuitive platform to add, update, and track student records efficiently. Easily view your complete student list anytime.
+    </p>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="nav-btn primary" (click)="viewStudentList()">
+        <mat-icon>people</mat-icon>
+        <span class="label">View Students</span>
+      </button>
+
+      <button class="nav-btn secondary" (click)="openAddDialog()">
+        <mat-icon>person_add</mat-icon>
+        <span class="label">Add Student</span>
+      </button>
+    </div>
+  </div>
+</div>
+

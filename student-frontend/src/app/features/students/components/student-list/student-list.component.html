@@ -1,0 +1,95 @@
+<div class="table-container">
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search students</mat-label>
+      <input matInput 
+             [formControl]="searchControl" 
+             placeholder="Search by name...">
+      <mat-icon matPrefix>search</mat-icon>
+      @if (searchControl.value) {
+        <button mat-icon-button matSuffix (click)="clearSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+    </mat-form-field>
+  </div>
+
+  <!-- Table -->
+  <table mat-table [dataSource]="dataSource" class="student-table">
+    <!-- Full Name Column -->
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef>Full Name</th>
+      <td mat-cell *matCellDef="let student">{{ student.fullName }}</td>
+    </ng-container>
+
+    <!-- Date of Birth Column -->
+    <ng-container matColumnDef="dateOfBirth">
+      <th mat-header-cell *matHeaderCellDef>Date of Birth</th>
+      <td mat-cell *matCellDef="let student">
+        {{ formatDate(student.dateOfBirth) }}
+      </td>
+    </ng-container>
+
+    <!-- Age Column -->
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef>Age</th>
+      <td mat-cell *matCellDef="let student">{{ student.age }} years</td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let student">
+        <div class="action-buttons">
+          <button mat-icon-button class="edit-btn"
+                  matTooltip="Edit"
+                  (click)="edit.emit(student)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button class="delete-btn"
+                  matTooltip="Delete"
+                  (click)="delete.emit(student.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button class="view-btn"
+                  matTooltip="View Details"
+                  routerLink="/students/{{student.id}}">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  @if (dataSource.filteredData.length === 0 && searchControl.value) {
+    <div class="empty-state">
+      <mat-icon>search_off</mat-icon>
+      <h3>No Results Found</h3>
+      <p>No students match your search criteria.</p>
+      <button mat-button (click)="clearSearch()" class="clear-search-btn">
+        Clear Search
+      </button>
+    </div>
+  } @else if (students().length === 0) {
+    <div class="empty-state">
+      <mat-icon>school</mat-icon>
+      <h3>No Students Found</h3>
+      <p>Click "Add New Student" to create your first student record.</p>
+    </div>
+  }
+
+  <!-- Pagination -->
+  @if (students().length > 0) {
+    <mat-paginator 
+      [length]="dataSource.filteredData.length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 50]"
+      showFirstLastButtons
+      aria-label="Select page">
+    </mat-paginator>
+  }
+</div>

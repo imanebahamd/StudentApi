@@ -1,0 +1,159 @@
+// students-page.component.scss (UPDATED - Graduation Cap Version)
+.welcome-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFDE7;
+  padding: 24px;
+  text-align: center;
+
+  .welcome-container {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .mascot-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 36px;
+    animation: fadeInDown 0.8s ease-out;
+  }
+
+  .welcome-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 16px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+
+    .highlight {
+      color: #111827;
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        right: 0;
+        height: 10px;
+        background: linear-gradient(to right, rgba(250, 204, 21, 0.35), rgba(251, 191, 36, 0.35));
+        border-radius: 2px;
+        z-index: -1;
+      }
+    }
+  }
+
+  .welcome-description {
+    font-size: 1.125rem;
+    color: #6b7280;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+      mat-icon {
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+        mat-icon {
+          transform: scale(1.1);
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+
+      &.primary {
+        background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+        color: white;
+      }
+
+      &.secondary {
+        background: white;
+        color: #111827;
+        border: 2px solid #e5e7eb;
+
+        &:hover {
+          border-color: #facc15;
+          background: #fffef7;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .welcome-page {
+    .welcome-title {
+      font-size: 2rem;
+    }
+
+    .welcome-description {
+      font-size: 1rem;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+      gap: 12px;
+
+      .nav-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}

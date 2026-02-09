@@ -1,0 +1,119 @@
+.dialog-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  .dialog-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 20px 20px 16px;
+    margin: 0;
+    color: #1f2937;
+    border-bottom: 1px solid #f3f4f6;
+
+    mat-icon {
+      font-size: 22px;
+      width: 22px;
+      height: 22px;
+      color: #facc15;
+    }
+  }
+
+  mat-dialog-content {
+    padding: 20px;
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 380px;
+    }
+
+    mat-form-field {
+      width: 100%;
+
+      ::ng-deep {
+        .mat-mdc-text-field-wrapper {
+          background: #fafafa;
+          border-radius: 8px;
+        }
+
+        .mdc-notched-outline * {
+          border-color: #e5e7eb !important;
+          border-width: 1px;
+          border-radius: 8px;
+        }
+
+        .mdc-text-field--focused .mdc-notched-outline * {
+          border-color: #facc15 !important;
+          border-width: 2px;
+        }
+
+        input.mat-mdc-input-element {
+          font-size: 14px;
+          color: #1f2937;
+        }
+
+        .mat-mdc-form-field-label {
+          color: #6b7280;
+          font-size: 14px;
+        }
+
+        .mat-mdc-text-field--focused .mat-mdc-form-field-label {
+          color: #facc15;
+        }
+
+        .mat-mdc-form-field-error {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  mat-dialog-actions {
+    padding: 12px 20px 20px;
+    gap: 8px;
+
+    button[mat-button] {
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      color: #6b7280;
+      
+      &:hover {
+        background: #f3f4f6;
+        color: #1f2937;
+      }
+    }
+
+    button[mat-raised-button] {
+      background: #1f2937;
+      color: white;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 0 20px;
+      transition: all 0.2s ease;
+
+      &:hover:not(:disabled) {
+        background: #facc15;
+        color: #1f2937;
+        box-shadow: 0 2px 8px rgba(250, 204, 21, 0.3);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .dialog-wrapper form {
+    min-width: 300px;
+  }
+}

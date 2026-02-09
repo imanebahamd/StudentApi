@@ -1,0 +1,43 @@
+<div class="dialog-wrapper">
+  <h2 mat-dialog-title class="dialog-title">
+    <mat-icon>{{ data.mode === 'add' ? 'person_add' : 'edit' }}</mat-icon>
+    {{ data.mode === 'add' ? 'Add New Student' : 'Edit Student' }}
+  </h2>
+
+  <mat-dialog-content>
+    <form [formGroup]="studentForm">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="Enter first name">
+        @if (studentForm.get('firstName')?.invalid) {
+          <mat-error>{{ studentForm.get('firstName')?.errors?.['required'] ? 'Required' : 'Max 50 chars' }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Enter last name">
+        @if (studentForm.get('lastName')?.invalid) {
+          <mat-error>{{ studentForm.get('lastName')?.errors?.['required'] ? 'Required' : 'Max 50 chars' }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        @if (studentForm.get('dateOfBirth')?.invalid) {
+          <mat-error>Invalid date</mat-error>
+        }
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button (click)="onSubmit()" [disabled]="studentForm.invalid || isSubmitting()">
+      {{ data.mode === 'add' ? 'Create' : 'Update' }}
+    </button>
+  </mat-dialog-actions>
+</div>

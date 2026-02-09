@@ -1,0 +1,93 @@
+@if (loading()) {
+  <div class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Loading student details...</p>
+  </div>
+} @else if (error()) {
+  <div class="error-container">
+    <mat-icon class="error-icon">error</mat-icon>
+    <h2>Error Loading Student</h2>
+    <p>{{ error() }}</p>
+    <div class="error-actions">
+      <button mat-raised-button class="back-btn" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Students
+      </button>
+      <button mat-button class="retry-btn" (click)="loadStudent()">
+        <mat-icon>refresh</mat-icon>
+        Try Again
+      </button>
+    </div>
+  </div>
+} @else if (student()) {
+  <div class="student-details-container">
+    <div class="header-actions">
+      <button mat-button class="back-link" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Students
+      </button>
+      
+      <div class="action-buttons">
+        <button mat-raised-button class="edit-btn" (click)="openEditDialog()">
+          <mat-icon>edit</mat-icon>
+          Edit Student
+        </button>
+        <button mat-raised-button class="delete-btn" (click)="deleteStudent()">
+          <mat-icon>delete</mat-icon>
+          Delete Student
+        </button>
+      </div>
+    </div>
+
+    <mat-card class="student-card">
+      <mat-card-header>
+        <div mat-card-avatar class="student-avatar">
+          <mat-icon>person</mat-icon>
+        </div>
+        <mat-card-title>{{ student()?.fullName }}</mat-card-title>
+        <mat-card-subtitle>Student ID: {{ student()?.id }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-content>
+        <div class="details-grid">
+          <div class="detail-item">
+            <h3 class="detail-label">First Name</h3>
+            <p class="detail-value">{{ student()?.firstName }}</p>
+          </div>
+
+          <div class="detail-item">
+            <h3 class="detail-label">Last Name</h3>
+            <p class="detail-value">{{ student()?.lastName }}</p>
+          </div>
+
+          <div class="detail-item">
+            <h3 class="detail-label">Date of Birth</h3>
+            <p class="detail-value">{{ formatDate(student()?.dateOfBirth!) }}</p>
+          </div>
+
+          <div class="detail-item">
+            <h3 class="detail-label">Age</h3>
+            <p class="detail-value">{{ student()?.age }} years old</p>
+          </div>
+
+          <div class="detail-item full-width">
+            <h3 class="detail-label">Full Name</h3>
+            <p class="detail-value">{{ student()?.fullName }}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+} @else {
+  <div class="not-found">
+    <mat-icon class="not-found-icon">person_off</mat-icon>
+    <h2>Student Not Found</h2>
+    <p>The student you're looking for doesn't exist or has been removed.</p>
+    <button mat-raised-button class="return-btn" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      Return to Students List
+    </button>
+  </div>
+}
