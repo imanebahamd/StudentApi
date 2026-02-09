@@ -7,7 +7,7 @@ The project follows modern software architecture principles including **Domain-D
 
 ## Demo
 
-![Application Demo](assets/demo.gif)
+![Application Demo](student-frontend/src/assets/demo.gif)
 
 ---
 
