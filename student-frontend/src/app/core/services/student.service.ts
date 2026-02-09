@@ -105,7 +105,6 @@ createStudent(command: CreateStudentCommand): Observable<number> {
     );
   }
 
-  // Utility methods
   refreshStudents(): void {
     this.getAllStudents().subscribe();
   }

@@ -6,7 +6,6 @@ import { catchError, throwError } from 'rxjs';
 export const apiInterceptor: HttpInterceptorFn = (req, next) => {
   const snackBar = inject(MatSnackBar);
   
-  // Add headers if needed
   const modifiedReq = req.clone({
     setHeaders: {
       'Content-Type': 'application/json',
@@ -30,7 +29,6 @@ export const apiInterceptor: HttpInterceptorFn = (req, next) => {
         errorMessage = 'Server error. Please try again later.';
       }
       
-      // Show snackbar notification
       snackBar.open(errorMessage, 'Close', {
         duration: 5000,
         horizontalPosition: 'right',

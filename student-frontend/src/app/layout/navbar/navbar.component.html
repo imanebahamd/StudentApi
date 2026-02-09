@@ -1,22 +1,18 @@
 <mat-toolbar class="navbar">
   <div class="container">
-    <!-- Logo with styled "O" -->
     <a routerLink="/" class="logo">
       <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36">
-        <!-- Gradient definition -->
         <defs>
           <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#facc15;stop-opacity:1" />
             <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
           </linearGradient>
           
-          <!-- Shadow filter for depth -->
           <filter id="logoShadow" x="-50%" y="-50%" width="200%" height="200%">
             <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.2"/>
           </filter>
         </defs>
         
-        <!-- Main "O" ring with gradient -->
         <circle 
           cx="18" 
           cy="18" 
@@ -26,7 +22,6 @@
           stroke-width="5"
           filter="url(#logoShadow)"/>
         
-        <!-- Inner shine/highlight -->
         <circle 
           cx="18" 
           cy="18" 
@@ -38,17 +33,14 @@
           stroke-dasharray="15 50"
           transform="rotate(-45 18 18)"/>
         
-        <!-- Small graduation cap accent on the "O" -->
         <g transform="translate(0, 2)">
           <path 
             d="M 12 6 L 18 3 L 24 6 L 18 9 Z" 
             fill="#111827" 
             opacity="0.85"/>
           
-          <!-- Cap button -->
           <circle cx="18" cy="6" r="1.5" fill="#facc15"/>
           
-          <!-- Tiny tassel -->
           <line x1="24" y1="6" x2="26.5" y2="11" stroke="#facc15" stroke-width="1.2" stroke-linecap="round"/>
           <circle cx="26.5" cy="12" r="1.5" fill="#facc15"/>
         </g>
@@ -56,7 +48,6 @@
       <span class="logo-text">Our<span class="highlight">Students</span></span>
     </a>
 
-    <!-- Links -->
     <div class="nav-links">
       <a
         routerLink="/"

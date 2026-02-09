@@ -5,39 +5,68 @@
   </h2>
 
   <mat-dialog-content>
+    @if (errorMessage()) {
+      <div class="error-alert">
+        <mat-icon>error_outline</mat-icon>
+        <span>{{ errorMessage() }}</span>
+      </div>
+    }
+
     <form [formGroup]="studentForm">
       <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
-        <input matInput formControlName="firstName" placeholder="Enter first name">
-        @if (studentForm.get('firstName')?.invalid) {
-          <mat-error>{{ studentForm.get('firstName')?.errors?.['required'] ? 'Required' : 'Max 50 chars' }}</mat-error>
+        <input matInput 
+               formControlName="firstName" 
+               placeholder="Enter first name"
+               autocomplete="given-name">
+        @if (studentForm.get('firstName')?.invalid && studentForm.get('firstName')?.touched) {
+          <mat-error>{{ getFisrtNameError() }}</mat-error>
         }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
-        <input matInput formControlName="lastName" placeholder="Enter last name">
-        @if (studentForm.get('lastName')?.invalid) {
-          <mat-error>{{ studentForm.get('lastName')?.errors?.['required'] ? 'Required' : 'Max 50 chars' }}</mat-error>
+        <input matInput 
+               formControlName="lastName" 
+               placeholder="Enter last name"
+               autocomplete="family-name">
+        @if (studentForm.get('lastName')?.invalid && studentForm.get('lastName')?.touched) {
+          <mat-error>{{ getLastNameError() }}</mat-error>
         }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Date of Birth</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+        <input matInput 
+               [matDatepicker]="picker" 
+               formControlName="dateOfBirth"
+               placeholder="MM/DD/YYYY">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        @if (studentForm.get('dateOfBirth')?.invalid) {
-          <mat-error>Invalid date</mat-error>
+        @if (studentForm.get('dateOfBirth')?.invalid && studentForm.get('dateOfBirth')?.touched) {
+          <mat-error>{{ getDateOfBirthError() }}</mat-error>
         }
       </mat-form-field>
     </form>
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button (click)="onCancel()">Cancel</button>
-    <button mat-raised-button (click)="onSubmit()" [disabled]="studentForm.invalid || isSubmitting()">
-      {{ data.mode === 'add' ? 'Create' : 'Update' }}
+    <button mat-button 
+            (click)="onCancel()"
+            [disabled]="isSubmitting()">
+      Cancel
+    </button>
+    <button mat-raised-button 
+            (click)="onSubmit()" 
+            [disabled]="studentForm.invalid || isSubmitting()">
+      @if (isSubmitting()) {
+        <ng-container>
+          <mat-icon class="spinner">hourglass_empty</mat-icon>
+          {{ data.mode === 'add' ? 'Creating...' : 'Updating...' }}
+        </ng-container>
+      } @else {
+        {{ data.mode === 'add' ? 'Create' : 'Update' }}
+      }
     </button>
   </mat-dialog-actions>
 </div>

@@ -1,0 +1,18 @@
+.cap-container {
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+}
+
+.cap-svg {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cap-svg:hover {
+  transform: translateY(-4px);
+}
+
+.graduation-cap {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}

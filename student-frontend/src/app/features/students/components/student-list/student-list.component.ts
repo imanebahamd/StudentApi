@@ -15,6 +15,7 @@ import { format } from 'date-fns';
 
 @Component({
     selector: 'app-student-list',
+    standalone: true,
     imports: [
     MatTableModule,
     MatButtonModule,
@@ -43,7 +44,6 @@ export class StudentListComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor() {
-    // Update data source when students input changes
     effect(() => {
       this.dataSource.data = this.students();
       if (this.paginator) {
@@ -51,7 +51,6 @@ export class StudentListComponent {
       }
     });
 
-    // Setup search filter
     this.searchControl.valueChanges.subscribe(value => {
       this.applyFilter(value || '');
     });

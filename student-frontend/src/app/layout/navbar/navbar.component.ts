@@ -9,6 +9,7 @@ import { StudentService } from './../../core/services/student.service';
 
 @Component({
     selector: 'app-navbar',
+    standalone: true,
     imports: [
     RouterModule,
     MatToolbarModule,
